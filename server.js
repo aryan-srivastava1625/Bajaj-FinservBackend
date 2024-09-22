@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
-const port = 3000;
 const mime = require('mime-types');  // To detect MIME type
+const app = express();
+
+// Use the port provided by Render or fallback to 3000 for local development
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));  // Increase the limit to handle Base64 file data
